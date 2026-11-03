@@ -1,0 +1,29 @@
+# ===== blogs/ (Astro) =====
+# build output
+blogs/dist/
+# generated types / cache
+blogs/.astro/
+# dependencies
+blogs/node_modules/
+
+# Cloudflare (wrangler) local state
+blogs/.wrangler/
+blogs/.dev.vars*
+
+# logs
+blogs/**/*.log
+blogs/**/npm-debug.log*
+blogs/**/yarn-debug.log*
+blogs/**/yarn-error.log*
+blogs/**/pnpm-debug.log*
+
+# environment variables
+blogs/**/.env
+blogs/**/.env.*
+!blogs/**/.env.example
+
+# ===== OS / Editor =====
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
