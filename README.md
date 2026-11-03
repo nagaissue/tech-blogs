@@ -7,6 +7,6 @@
 ## 技術スタック
 
 - [Cloudflare Pages](https://pages.cloudflare.com/) — ホスティング・公開
-- [Astro](https://astro.build/) — 静的サイトジェネレーター
+- [Astro](https://astro.build/ja/) — 静的サイトジェネレーター
 - [VS Code](https://code.visualstudio.com/) — 執筆・開発環境
 - [GitHub](https://github.com/) — ソースコード管理
