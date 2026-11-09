@@ -1,0 +1,45 @@
+{
+  "title": "第15回 今日のIT豆知識",
+  "description": "～第15回ネットワークサークル～ / 今日のIT豆知識① / 今日のIT豆知識②",
+  "category": "network_basics",
+  "session": 15,
+  "slides": [
+    {
+      "title": "第15回",
+      "image": "../../assets/slides/15-it-trivia/slide_1.png",
+      "paragraphs": [
+        "第15回",
+        "～第15回ネットワークサークル～",
+        "2026/05/11",
+        "作成者：永井秀汰"
+      ]
+    },
+    {
+      "title": "目次",
+      "image": "../../assets/slides/15-it-trivia/slide_2.png",
+      "paragraphs": [
+        "目次"
+      ]
+    },
+    {
+      "title": "今日のIT豆知識①",
+      "image": "../../assets/slides/15-it-trivia/slide_3.png",
+      "paragraphs": [
+        "今日のIT豆知識①",
+        "Chrome Flags\n…ChromeやBraveなどのChromiumベースのブラウザに搭載されている試験運用設定\n→ブラウザ動作の高速化や縦タブバーなど，通常は設定できない機能が豊富（※機能の移り変わり激しい）",
+        "解説動画↓\nhttps://youtu.be/HkOU4uTjPCs?si=lpKjw97mRthIlP1E"
+      ]
+    },
+    {
+      "title": "今日のIT豆知識②",
+      "image": "../../assets/slides/15-it-trivia/slide_4.png",
+      "paragraphs": [
+        "今日のIT豆知識②",
+        "文字入力時のお役立ちFnキー\n例）“あいうえお”と入力",
+        "①F10で半角英字に変換",
+        "②F7で全角カタカナに変換"
+      ],
+      "notes": "画像URL：https://play-lh.googleusercontent.com/UBrZnuXGb-QACU0uUdF5r_n5nx5oBbdfPyEbtsr0xXv00RN7rpaTVu3GjLeE90aHFmNlbaCmm8vNcmY0eE98U9E=w240-h480-rw\n・BraveはDドライブにインストールして実演してみる（）"
+    }
+  ]
+}

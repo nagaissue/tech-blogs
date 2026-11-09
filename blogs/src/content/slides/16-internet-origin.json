@@ -1,0 +1,31 @@
+{
+  "title": "インターネットの起源",
+  "description": "2026/05/18 / インターネットの起源",
+  "category": "network_basics",
+  "session": 16,
+  "date": "2026-05-18",
+  "slides": [
+    {
+      "title": "～第16回ネットワークサークル～",
+      "image": "../../assets/slides/16-internet-origin/slide_1.png",
+      "paragraphs": [
+        "～第16回ネットワークサークル～",
+        "2026/05/18",
+        "作成者：永井秀汰"
+      ]
+    },
+    {
+      "title": "インターネットの起源",
+      "image": "../../assets/slides/16-internet-origin/slide_2.png",
+      "paragraphs": [
+        "インターネットの起源",
+        "1969年… “ARPANET”（アーパネット）の構築\n米国防総省“ARPA”（アーパ）が軍事・研究",
+        "米国内の4大学／研究機関を接続する形で運用が開始"
+      ]
+    },
+    {
+      "title": "スライド 3",
+      "image": "../../assets/slides/16-internet-origin/slide_3.png"
+    }
+  ]
+}

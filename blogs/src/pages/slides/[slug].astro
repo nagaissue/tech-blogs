@@ -1,0 +1,959 @@
+---
+import { getImage, Image } from 'astro:assets';
+import { getCollection, type CollectionEntry } from 'astro:content';
+import SlidesLayout from '../../layouts/SlidesLayout.astro';
+import { SLIDE_CATEGORIES, SLIDES_TITLE } from '../../consts';
+
+export async function getStaticPaths() {
+	const decks = await getCollection('slides');
+	return decks.map((deck) => ({ params: { slug: deck.id }, props: { deck } }));
+}
+
+interface Props {
+	deck: CollectionEntry<'slides'>;
+}
+
+const { deck } = Astro.props;
+const { title, description, category, slides } = deck.data;
+const cat = SLIDE_CATEGORIES[category];
+const total = slides.length;
+
+// プレゼン表示用(大)と目次サムネイル用(小)を事前に最適化
+const optimized = await Promise.all(
+	slides.map(async (s) => {
+		const [full, thumb] = await Promise.all([
+			getImage({ src: s.image, width: 1600, format: 'webp' }),
+			getImage({ src: s.image, width: 320, format: 'webp' }),
+		]);
+		return { full: full.src, thumb: thumb.src };
+	}),
+);
+const deckData = slides.map((s, i) => ({ title: s.title, src: optimized[i].full }));
+
+// 本文中の URL をリンク化する
+const URL_RE = /(https?:\/\/[^\s　]+)/g;
+const linkify = (text: string) =>
+	text.split(URL_RE).map((part, i) => ({ text: part, url: i % 2 === 1 }));
+---
+
+<SlidesLayout title={`${title} - ${SLIDES_TITLE}`} description={description} image={slides[0].image}>
+	<header class="top-header">
+		<div class="header-left">
+			<a href="/slides/" class="back-link" title="全資料一覧へ戻る">◀ 一覧へ</a>
+			<div class="header-title-box">
+				<span class="category-tag">{cat.icon} {cat.label}</span>
+				<h1 class="header-title" title={title}>{title}</h1>
+			</div>
+		</div>
+		<div class="header-controls">
+			<div class="view-switch-group">
+				<button class="view-btn active" data-mode-btn="presentation" title="スライド表示 (D)">
+					🖥️<span> スライド</span>
+				</button>
+				<button class="view-btn" data-mode-btn="document" title="ドキュメント表示 (D)">
+					📄<span> ドキュメント</span>
+				</button>
+			</div>
+			<button class="icon-btn" data-action="drawer" title="目次・スライド一覧 (M)">📑</button>
+			<button class="icon-btn" data-theme-toggle title="テーマ切替 (T)">🌓</button>
+			<button class="icon-btn" data-action="help" title="操作説明 (?)">❓</button>
+			<button class="icon-btn" data-action="fullscreen" title="全画面表示 (F)">⛶</button>
+		</div>
+	</header>
+
+	<div class="progress-bar-container"><div class="progress-bar" id="progressBar"></div></div>
+
+	<main id="presentation-view">
+		<div class="slide-stage" id="slideStage">
+			<img
+				src={optimized[0].full}
+				alt={`Slide 1: ${slides[0].title}`}
+				class="slide-image"
+				id="activeSlideImg"
+				width="1600"
+				height="900"
+			/>
+			<button class="nav-arrow nav-prev" data-action="prev" title="前へ (←)">‹</button>
+			<button class="nav-arrow nav-next" data-action="next" title="次へ (→)">›</button>
+		</div>
+
+		<div class="pres-controls">
+			<div class="pres-info">
+				<span class="slide-counter" id="slideCounter">1 / {total}</span>
+				<span class="current-slide-title" id="currentSlideTitle">{slides[0].title}</span>
+			</div>
+			<div class="pres-nav-buttons">
+				<button class="ctrl-btn" data-action="first" title="最初へ (Home)">⏮️ 最初</button>
+				<button class="ctrl-btn" id="btnPrev" data-action="prev" title="前へ (←)">◀ 前へ</button>
+				<button class="ctrl-btn" id="btnNext" data-action="next" title="次へ (→)">次へ ▶</button>
+				<button class="ctrl-btn" data-action="last" title="最後へ (End)">最後 ⏭️</button>
+			</div>
+		</div>
+	</main>
+
+	<main id="document-view" hidden>
+		{
+			slides.map((s, i) => (
+				<article class="doc-slide-card" id={`doc-slide-${i + 1}`}>
+					<div class="doc-slide-header">
+						<span class="slide-badge">
+							Slide {i + 1} / {total}
+						</span>
+						<h2 class="doc-slide-title">{s.title}</h2>
+					</div>
+					<div class="doc-slide-body">
+						<button
+							class="doc-slide-img-box"
+							data-lightbox={optimized[i].full}
+							title="クリックで拡大"
+						>
+							<Image
+								src={s.image}
+								alt={`Slide ${i + 1}: ${s.title}`}
+								class="doc-slide-img"
+								width={960}
+								format="webp"
+							/>
+							<span class="img-hint">クリックで拡大</span>
+						</button>
+						{(s.paragraphs || s.code || s.notes) && (
+							<div class="doc-slide-content">
+								{s.paragraphs?.map((p) => (
+									<p class="para-item">
+										{linkify(p).map((part) =>
+											part.url ? (
+												<a href={part.text} target="_blank" rel="noopener">
+													{part.text}
+												</a>
+											) : (
+												part.text
+											),
+										)}
+									</p>
+								))}
+								{s.code?.map((code) => (
+									<div class="code-box">
+										<div class="code-header">
+											<span>💻 コマンド / 設定構文</span>
+											<button class="copy-btn" data-copy={code}>
+												コピー
+											</button>
+										</div>
+										<pre><code>{code}</code></pre>
+									</div>
+								))}
+								{s.notes && (
+									<div class="slide-notes">
+										<strong>📝 備考・解説:</strong> {s.notes}
+									</div>
+								)}
+							</div>
+						)}
+					</div>
+				</article>
+			))
+		}
+	</main>
+
+	<div class="drawer-overlay" id="drawerOverlay" data-action="drawer"></div>
+	<aside class="drawer-panel" id="drawerPanel" aria-label="スライド目次">
+		<div class="drawer-header">
+			<h3>📑 スライド目次 ({total}枚)</h3>
+			<button class="close-btn" data-action="drawer" title="閉じる">&times;</button>
+		</div>
+		<div class="drawer-list">
+			{
+				slides.map((s, i) => (
+					<button class="drawer-item" data-goto={i + 1}>
+						<img src={optimized[i].thumb} alt="" class="drawer-thumb" loading="lazy" width="320" height="180" />
+						<span class="drawer-info">
+							<span class="drawer-num">#{i + 1}</span>
+							<span class="drawer-title">{s.title}</span>
+						</span>
+					</button>
+				))
+			}
+		</div>
+	</aside>
+
+	<div class="lightbox" id="lightbox">
+		<img src="" id="lightboxImg" alt="拡大画像" />
+	</div>
+
+	<div class="help-modal" id="helpModal" role="dialog" aria-label="キーボード操作">
+		<div class="help-head">
+			<h3>⌨️ キーボード操作ショートカット</h3>
+			<button class="close-btn" data-action="help" title="閉じる">&times;</button>
+		</div>
+		<table class="help-table">
+			<tr><td><kbd>→</kbd> / <kbd>Space</kbd></td><td>次のスライドへ進む</td></tr>
+			<tr><td><kbd>←</kbd> / <kbd>Backspace</kbd></td><td>前のスライドへ戻る</td></tr>
+			<tr><td><kbd>Home</kbd> / <kbd>End</kbd></td><td>最初 / 最後のスライドへ</td></tr>
+			<tr><td><kbd>D</kbd></td><td>スライド / ドキュメント表示切替</td></tr>
+			<tr><td><kbd>M</kbd></td><td>目次・サムネイル一覧の開閉</td></tr>
+			<tr><td><kbd>F</kbd></td><td>全画面表示の切替</td></tr>
+			<tr><td><kbd>T</kbd></td><td>ダーク / ライトテーマ切替</td></tr>
+			<tr><td><kbd>Esc</kbd></td><td>目次・ポップアップを閉じる</td></tr>
+		</table>
+	</div>
+
+	<script type="application/json" id="deck-data" set:html={JSON.stringify(deckData)} />
+</SlidesLayout>
+
+<script>
+	type SlideData = { title: string; src: string };
+	const slides: SlideData[] = JSON.parse(document.getElementById('deck-data')!.textContent!);
+	const total = slides.length;
+	const $ = (id: string) => document.getElementById(id)!;
+
+	const presView = $('presentation-view');
+	const docView = $('document-view');
+	const activeImg = $('activeSlideImg') as HTMLImageElement;
+	const drawer = $('drawerPanel');
+	const overlay = $('drawerOverlay');
+	const lightbox = $('lightbox');
+	const lightboxImg = $('lightboxImg') as HTMLImageElement;
+	const helpModal = $('helpModal');
+	const drawerItems = document.querySelectorAll<HTMLElement>('.drawer-item');
+
+	let current = 1;
+	let mode: 'presentation' | 'document' = 'presentation';
+
+	// 前後のスライド画像を先読み
+	const preload = (n: number) => {
+		if (n >= 1 && n <= total) new Image().src = slides[n - 1].src;
+	};
+
+	function render() {
+		const s = slides[current - 1];
+		activeImg.src = s.src;
+		activeImg.alt = `Slide ${current}: ${s.title}`;
+		$('slideCounter').textContent = `${current} / ${total}`;
+		$('currentSlideTitle').textContent = s.title;
+		$('progressBar').style.width = `${(current / total) * 100}%`;
+		($('btnPrev') as HTMLButtonElement).disabled = current === 1;
+		($('btnNext') as HTMLButtonElement).disabled = current === total;
+		drawerItems.forEach((el, i) => el.classList.toggle('active', i + 1 === current));
+		history.replaceState(null, '', `#slide-${current}`);
+		preload(current + 1);
+		preload(current - 1);
+	}
+
+	function goTo(n: number) {
+		current = Math.min(Math.max(n, 1), total);
+		render();
+		if (mode === 'document') {
+			$(`doc-slide-${current}`).scrollIntoView({ behavior: 'smooth', block: 'start' });
+		}
+		closeDrawer();
+	}
+
+	function switchMode(next: typeof mode) {
+		mode = next;
+		presView.hidden = mode !== 'presentation';
+		docView.hidden = mode !== 'document';
+		document
+			.querySelectorAll<HTMLElement>('[data-mode-btn]')
+			.forEach((b) => b.classList.toggle('active', b.dataset.modeBtn === mode));
+		if (mode === 'document') {
+			requestAnimationFrame(() =>
+				$(`doc-slide-${current}`).scrollIntoView({ behavior: 'smooth', block: 'center' }),
+			);
+		} else {
+			render();
+		}
+	}
+
+	const toggleDrawer = () => {
+		drawer.classList.toggle('open');
+		overlay.classList.toggle('open');
+	};
+	const closeDrawer = () => {
+		drawer.classList.remove('open');
+		overlay.classList.remove('open');
+	};
+	const openLightbox = (src: string) => {
+		lightboxImg.src = src;
+		lightbox.classList.add('open');
+	};
+	const closeLightbox = () => lightbox.classList.remove('open');
+	const toggleHelp = () => helpModal.classList.toggle('open');
+	const toggleFullscreen = () => {
+		if (!document.fullscreenElement) document.documentElement.requestFullscreen().catch(() => {});
+		else document.exitFullscreen();
+	};
+
+	const actions: Record<string, () => void> = {
+		prev: () => goTo(current - 1),
+		next: () => goTo(current + 1),
+		first: () => goTo(1),
+		last: () => goTo(total),
+		drawer: toggleDrawer,
+		help: toggleHelp,
+		fullscreen: toggleFullscreen,
+	};
+
+	document.addEventListener('click', (e) => {
+		const t = e.target as HTMLElement;
+		const actionEl = t.closest<HTMLElement>('[data-action]');
+		if (actionEl) return actions[actionEl.dataset.action!]?.();
+		const modeEl = t.closest<HTMLElement>('[data-mode-btn]');
+		if (modeEl) return switchMode(modeEl.dataset.modeBtn as typeof mode);
+		const gotoEl = t.closest<HTMLElement>('[data-goto]');
+		if (gotoEl) return goTo(Number(gotoEl.dataset.goto));
+		const lbEl = t.closest<HTMLElement>('[data-lightbox]');
+		if (lbEl) return openLightbox(lbEl.dataset.lightbox!);
+		if (t.closest('#lightbox')) return closeLightbox();
+		const copyEl = t.closest<HTMLButtonElement>('[data-copy]');
+		if (copyEl) {
+			navigator.clipboard.writeText(copyEl.dataset.copy!).then(() => {
+				const orig = copyEl.textContent;
+				copyEl.textContent = '✓ コピー完了';
+				copyEl.classList.add('copied');
+				setTimeout(() => {
+					copyEl.textContent = orig;
+					copyEl.classList.remove('copied');
+				}, 2000);
+			});
+		}
+	});
+
+	window.addEventListener('keydown', (e) => {
+		const tag = (e.target as HTMLElement).tagName;
+		if (tag === 'INPUT' || tag === 'TEXTAREA' || e.ctrlKey || e.metaKey || e.altKey) return;
+		// ドキュメント表示中は矢印・スペースをページスクロールに使う
+		const nav = mode === 'presentation';
+		switch (e.key) {
+			case 'ArrowRight':
+			case 'ArrowDown':
+			case ' ':
+			case 'PageDown':
+				if (!nav) return;
+				e.preventDefault();
+				goTo(current + 1);
+				break;
+			case 'ArrowLeft':
+			case 'ArrowUp':
+			case 'PageUp':
+			case 'Backspace':
+				if (!nav) return;
+				e.preventDefault();
+				goTo(current - 1);
+				break;
+			case 'Home':
+				e.preventDefault();
+				goTo(1);
+				break;
+			case 'End':
+				e.preventDefault();
+				goTo(total);
+				break;
+			case 'f':
+			case 'F':
+				toggleFullscreen();
+				break;
+			case 'd':
+			case 'D':
+				switchMode(mode === 'presentation' ? 'document' : 'presentation');
+				break;
+			case 'm':
+			case 'M':
+				toggleDrawer();
+				break;
+			case 't':
+			case 'T':
+				document.querySelector<HTMLElement>('[data-theme-toggle]')?.click();
+				break;
+			case '?':
+				toggleHelp();
+				break;
+			case 'Escape':
+				closeDrawer();
+				closeLightbox();
+				helpModal.classList.remove('open');
+				break;
+		}
+	});
+
+	// スワイプ操作
+	let touchStartX = 0;
+	const stage = $('slideStage');
+	stage.addEventListener('touchstart', (e) => (touchStartX = e.changedTouches[0].screenX), { passive: true });
+	stage.addEventListener(
+		'touchend',
+		(e) => {
+			const dx = e.changedTouches[0].screenX - touchStartX;
+			if (dx < -50) goTo(current + 1);
+			if (dx > 50) goTo(current - 1);
+		},
+		{ passive: true },
+	);
+
+	// #slide-N で直接開く
+	const m = location.hash.match(/^#slide-(\d+)$/);
+	current = m ? Math.min(Math.max(Number(m[1]), 1), total) : 1;
+	render();
+</script>
+
+<style>
+	.top-header {
+		position: sticky;
+		top: 0;
+		z-index: 100;
+		background: var(--header-bg);
+		backdrop-filter: blur(10px);
+		border-bottom: 1px solid var(--border-color);
+		height: 60px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0 20px;
+		gap: 16px;
+	}
+	.header-left,
+	.header-title-box {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		min-width: 0;
+	}
+	.header-title-box {
+		gap: 8px;
+	}
+	.header-title {
+		font-size: 1.05rem;
+		font-weight: 700;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	.header-controls {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+	}
+	.view-switch-group {
+		display: flex;
+		background: var(--bg-tertiary);
+		border-radius: 8px;
+		padding: 3px;
+		gap: 2px;
+	}
+	.view-btn {
+		border: none;
+		background: transparent;
+		color: var(--text-secondary);
+		padding: 6px 12px;
+		font-size: 0.85rem;
+		font-weight: 600;
+		border-radius: 6px;
+		cursor: pointer;
+		white-space: nowrap;
+		transition: all 0.2s ease;
+	}
+	.view-btn.active {
+		background: var(--card-bg);
+		color: var(--accent);
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+	}
+
+	.progress-bar-container {
+		position: fixed;
+		top: 60px;
+		left: 0;
+		width: 100%;
+		height: 4px;
+		background: rgba(0, 0, 0, 0.2);
+		z-index: 99;
+	}
+	.progress-bar {
+		height: 100%;
+		width: 0%;
+		background: linear-gradient(90deg, #38bdf8, #818cf8);
+		transition: width 0.3s ease;
+	}
+
+	/* ---- プレゼンテーション表示 ---- */
+	#presentation-view {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: 20px;
+		user-select: none;
+	}
+	#presentation-view[hidden],
+	#document-view[hidden] {
+		display: none;
+	}
+	.slide-stage {
+		position: relative;
+		width: 100%;
+		max-width: 1200px;
+		aspect-ratio: 16 / 9;
+		background: #000;
+		border-radius: var(--radius);
+		overflow: hidden;
+		box-shadow: var(--shadow);
+	}
+	.slide-image {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		display: block;
+	}
+	.nav-arrow {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 48px;
+		height: 72px;
+		background: rgba(15, 23, 42, 0.65);
+		border: none;
+		color: #fff;
+		font-size: 1.8rem;
+		cursor: pointer;
+		opacity: 0;
+		transition: all 0.2s ease;
+		backdrop-filter: blur(4px);
+	}
+	.slide-stage:hover .nav-arrow,
+	.nav-arrow:focus-visible {
+		opacity: 1;
+	}
+	.nav-arrow:hover {
+		background: rgba(56, 189, 248, 0.85);
+	}
+	.nav-prev {
+		left: 0;
+		border-radius: 0 8px 8px 0;
+	}
+	.nav-next {
+		right: 0;
+		border-radius: 8px 0 0 8px;
+	}
+	.pres-controls {
+		margin-top: 16px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 12px;
+		width: 100%;
+		max-width: 1200px;
+		background: var(--card-bg);
+		padding: 10px 20px;
+		border-radius: var(--radius);
+		border: 1px solid var(--border-color);
+		box-shadow: var(--shadow);
+	}
+	.pres-info {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		min-width: 0;
+	}
+	.slide-counter {
+		font-weight: 700;
+		color: var(--accent);
+		white-space: nowrap;
+	}
+	.current-slide-title {
+		font-size: 0.95rem;
+		color: var(--text-secondary);
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	.pres-nav-buttons {
+		display: flex;
+		gap: 8px;
+	}
+	.ctrl-btn {
+		background: var(--bg-tertiary);
+		border: 1px solid var(--border-color);
+		color: var(--text-primary);
+		padding: 7px 14px;
+		border-radius: 6px;
+		cursor: pointer;
+		font-size: 0.9rem;
+		font-weight: 600;
+		white-space: nowrap;
+		transition: all 0.2s ease;
+	}
+	.ctrl-btn:hover:not(:disabled) {
+		background: var(--accent);
+		color: #fff;
+		border-color: var(--accent);
+	}
+	.ctrl-btn:disabled {
+		opacity: 0.4;
+		cursor: not-allowed;
+	}
+
+	/* ---- ドキュメント表示 ---- */
+	#document-view {
+		max-width: 1000px;
+		margin: 0 auto;
+		padding: 30px 20px 80px;
+		width: 100%;
+	}
+	.doc-slide-card {
+		background: var(--card-bg);
+		border: 1px solid var(--border-color);
+		border-radius: var(--radius);
+		margin-bottom: 30px;
+		overflow: hidden;
+		box-shadow: var(--shadow);
+		scroll-margin-top: 80px;
+		transition: border-color 0.2s ease;
+	}
+	.doc-slide-card:hover {
+		border-color: rgba(var(--accent-rgb), 0.5);
+	}
+	.doc-slide-header {
+		background: var(--bg-tertiary);
+		padding: 14px 20px;
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		border-bottom: 1px solid var(--border-color);
+	}
+	.slide-badge {
+		background: var(--accent);
+		color: #fff;
+		padding: 3px 10px;
+		border-radius: 12px;
+		font-size: 0.8rem;
+		font-weight: 700;
+		white-space: nowrap;
+	}
+	.doc-slide-title {
+		font-size: 1.1rem;
+		font-weight: 700;
+	}
+	.doc-slide-body {
+		padding: 20px;
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+	.doc-slide-img-box {
+		position: relative;
+		display: block;
+		width: 100%;
+		background: #000;
+		border-radius: 8px;
+		overflow: hidden;
+		aspect-ratio: 16 / 9;
+		cursor: zoom-in;
+		border: 1px solid var(--border-color);
+		padding: 0;
+	}
+	.doc-slide-img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		display: block;
+	}
+	.img-hint {
+		position: absolute;
+		bottom: 8px;
+		right: 8px;
+		background: rgba(0, 0, 0, 0.7);
+		color: #fff;
+		padding: 3px 8px;
+		border-radius: 4px;
+		font-size: 0.75rem;
+		pointer-events: none;
+	}
+	.doc-slide-content {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+	.para-item {
+		line-height: 1.7;
+		font-size: 0.95rem;
+		white-space: pre-line;
+	}
+	.para-item a {
+		color: var(--accent);
+		word-break: break-all;
+	}
+	.code-box {
+		background: var(--code-bg);
+		border-radius: 8px;
+		border: 1px solid var(--border-color);
+		overflow: hidden;
+		margin: 8px 0;
+	}
+	.code-header {
+		background: rgba(255, 255, 255, 0.05);
+		padding: 6px 12px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		font-size: 0.8rem;
+		color: #94a3b8;
+		border-bottom: 1px solid var(--border-color);
+	}
+	.copy-btn {
+		background: #334155;
+		color: #f8fafc;
+		border: 1px solid #475569;
+		padding: 3px 8px;
+		border-radius: 4px;
+		font-size: 0.75rem;
+		cursor: pointer;
+	}
+	.copy-btn:hover {
+		background: var(--accent);
+	}
+	.copy-btn.copied {
+		background: #22c55e;
+	}
+	.code-box pre {
+		padding: 12px 16px;
+		overflow-x: auto;
+		font-family: 'Cascadia Code', 'Fira Code', Consolas, 'Courier New', monospace;
+		font-size: 0.9rem;
+		color: #4ade80;
+		line-height: 1.5;
+	}
+	.slide-notes {
+		background: rgba(234, 179, 8, 0.1);
+		border-left: 4px solid #eab308;
+		padding: 10px 14px;
+		border-radius: 4px;
+		font-size: 0.85rem;
+		color: var(--text-secondary);
+		white-space: pre-line;
+		margin-top: 4px;
+	}
+
+	/* ---- 目次ドロワー ---- */
+	.drawer-overlay {
+		position: fixed;
+		inset: 0;
+		background: rgba(0, 0, 0, 0.6);
+		z-index: 200;
+		opacity: 0;
+		visibility: hidden;
+		transition: all 0.3s ease;
+	}
+	.drawer-overlay.open {
+		opacity: 1;
+		visibility: visible;
+	}
+	.drawer-panel {
+		position: fixed;
+		top: 0;
+		left: -380px;
+		width: min(360px, 90vw);
+		height: 100%;
+		background: var(--card-bg);
+		border-right: 1px solid var(--border-color);
+		z-index: 201;
+		box-shadow: 4px 0 20px rgba(0, 0, 0, 0.5);
+		transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+		display: flex;
+		flex-direction: column;
+	}
+	.drawer-panel.open {
+		left: 0;
+	}
+	.drawer-header,
+	.help-head {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.drawer-header {
+		padding: 18px 20px;
+		border-bottom: 1px solid var(--border-color);
+	}
+	.drawer-header h3 {
+		font-size: 1.1rem;
+	}
+	.close-btn {
+		background: transparent;
+		border: none;
+		color: var(--text-secondary);
+		font-size: 1.4rem;
+		cursor: pointer;
+	}
+	.drawer-list {
+		flex: 1;
+		overflow-y: auto;
+		padding: 14px;
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+	.drawer-item {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		padding: 8px;
+		border-radius: 8px;
+		border: 1px solid transparent;
+		cursor: pointer;
+		background: var(--bg-tertiary);
+		color: inherit;
+		text-align: left;
+		transition: all 0.2s ease;
+	}
+	.drawer-item:hover,
+	.drawer-item.active {
+		background: rgba(var(--accent-rgb), 0.15);
+		border-color: var(--accent);
+	}
+	.drawer-thumb {
+		width: 80px;
+		height: auto;
+		aspect-ratio: 16 / 9;
+		object-fit: cover;
+		border-radius: 4px;
+		background: #000;
+	}
+	.drawer-info {
+		flex: 1;
+		min-width: 0;
+	}
+	.drawer-num {
+		font-size: 0.75rem;
+		color: var(--accent);
+		font-weight: 700;
+		display: block;
+	}
+	.drawer-title {
+		font-size: 0.85rem;
+		font-weight: 600;
+		display: block;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	/* ---- ライトボックス / ヘルプ ---- */
+	.lightbox {
+		position: fixed;
+		inset: 0;
+		background: rgba(0, 0, 0, 0.9);
+		z-index: 300;
+		display: none;
+		align-items: center;
+		justify-content: center;
+		cursor: zoom-out;
+	}
+	.lightbox.open {
+		display: flex;
+	}
+	.lightbox img {
+		max-width: 95vw;
+		max-height: 95vh;
+		object-fit: contain;
+		border-radius: 6px;
+	}
+	.help-modal {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background: var(--card-bg);
+		border: 1px solid var(--border-color);
+		border-radius: var(--radius);
+		padding: 24px;
+		max-width: 450px;
+		width: 90%;
+		z-index: 250;
+		display: none;
+		box-shadow: var(--shadow);
+	}
+	.help-modal.open {
+		display: block;
+	}
+	.help-table {
+		width: 100%;
+		margin-top: 14px;
+		border-collapse: collapse;
+	}
+	.help-table td {
+		padding: 8px;
+		border-bottom: 1px solid var(--border-color);
+		font-size: 0.9rem;
+	}
+	kbd {
+		background: var(--bg-tertiary);
+		padding: 3px 8px;
+		border-radius: 4px;
+		font-family: monospace;
+		font-size: 0.85rem;
+		font-weight: bold;
+	}
+
+	@media print {
+		.top-header,
+		.progress-bar-container,
+		#presentation-view,
+		.drawer-panel,
+		.drawer-overlay,
+		.img-hint,
+		.copy-btn {
+			display: none !important;
+		}
+		#document-view {
+			display: block !important;
+			padding: 0 !important;
+			max-width: 100% !important;
+		}
+		.doc-slide-card {
+			break-after: page;
+			box-shadow: none !important;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.top-header {
+			padding: 0 10px;
+			gap: 8px;
+		}
+		.category-tag,
+		.current-slide-title,
+		.view-btn span {
+			display: none;
+		}
+		.view-btn {
+			padding: 6px 8px;
+		}
+		.header-controls {
+			gap: 4px;
+		}
+		.pres-controls {
+			padding: 10px;
+		}
+		.ctrl-btn {
+			padding: 6px 10px;
+			font-size: 0.8rem;
+		}
+		.doc-slide-header {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 6px;
+		}
+	}
+	@media (max-width: 480px) {
+		.back-link {
+			padding: 6px 8px;
+		}
+		[data-action='help'],
+		[data-action='fullscreen'] {
+			display: none;
+		}
+		.pres-nav-buttons [data-action='first'],
+		.pres-nav-buttons [data-action='last'] {
+			display: none;
+		}
+	}
+</style>

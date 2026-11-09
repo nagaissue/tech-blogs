@@ -1,0 +1,53 @@
+{
+  "title": "前回のパケトレおさらい",
+  "description": "～第16回ネットワークサークル～ / ルータを配置する / PCを配置する",
+  "category": "routing",
+  "session": 16,
+  "slides": [
+    {
+      "title": "前回のパケトレおさらい",
+      "image": "../../assets/slides/16-pt-review/slide_1.png",
+      "paragraphs": [
+        "前回のパケトレおさらい",
+        "～第16回ネットワークサークル～",
+        "2026/05/18",
+        "作成者：永井秀汰"
+      ]
+    },
+    {
+      "title": "ルータを配置する",
+      "image": "../../assets/slides/16-pt-review/slide_2.png",
+      "paragraphs": [
+        "ルータを配置する",
+        "ルータ“2911”（例）をクリック",
+        "クリックして配置"
+      ]
+    },
+    {
+      "title": "PCを配置する",
+      "image": "../../assets/slides/16-pt-review/slide_3.png",
+      "paragraphs": [
+        "PCを配置する",
+        "“PC”をクリック",
+        "クリックして配置"
+      ]
+    },
+    {
+      "title": "配線①",
+      "image": "../../assets/slides/16-pt-review/slide_4.png",
+      "paragraphs": [
+        "配線①",
+        "“Copper Straight-Through”をクリック"
+      ]
+    },
+    {
+      "title": "配線②",
+      "image": "../../assets/slides/16-pt-review/slide_5.png",
+      "paragraphs": [
+        "配線②",
+        "配置したルータをクリック",
+        "“GigabitEthernet0/0”をクリック"
+      ]
+    }
+  ]
+}

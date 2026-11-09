@@ -1,0 +1,138 @@
+{
+  "title": "ネットワークのいろは",
+  "description": "～第13回NWサークル～ / ネットワークの歴史 / ～インターネットの起源～",
+  "category": "network_basics",
+  "session": 13,
+  "slides": [
+    {
+      "title": "ネットワークのいろは",
+      "image": "../../assets/slides/13-network-iroha/slide_1.png",
+      "paragraphs": [
+        "ネットワークのいろは",
+        "～第13回NWサークル～",
+        "2026/04/20",
+        "作成者：永井秀汰"
+      ],
+      "notes": "“PT”は“Packet Tracer”の略称"
+    },
+    {
+      "title": "目次",
+      "image": "../../assets/slides/13-network-iroha/slide_2.png",
+      "paragraphs": [
+        "目次",
+        "ネットワークの歴史",
+        "ネットワークの基礎知識",
+        "今日のIT小話"
+      ]
+    },
+    {
+      "title": "ネットワークの歴史",
+      "image": "../../assets/slides/13-network-iroha/slide_3.png",
+      "paragraphs": [
+        "ネットワークの歴史",
+        "～インターネットの起源～",
+        "ARPANET（アーパネット）\n1969年に米国内の4つの大学・研究機関を接続する形で運用が開始",
+        "・カリフォルニア大学ロサンゼルス校(UCLA)",
+        "・カリフォルニア大学サンタバーバラ校(UCSB)",
+        "・ユタ大学",
+        "・スタンフォード研究所(SRI)",
+        "米国防総省の資金提供により，1967年に研究を開始したパケット通信型ネットワーク"
+      ],
+      "notes": "ARPANET…Advanced Research Projects Agency NETworkの略称\nマップURL：https://www.google.com/maps/@38.0309303,-116.6369397,5.88z\n?authuser=0&entry=ttu&g_ep=EgoyMDI2MDQxNS4wIKXMDSoASAFQAw%3D%3D"
+    },
+    {
+      "title": "ネットワークの歴史",
+      "image": "../../assets/slides/13-network-iroha/slide_4.png",
+      "paragraphs": [
+        "ネットワークの歴史",
+        "～変遷～",
+        "インターネット歴史年表\n→海外や国内におけるインターネットの時代変遷が丸分かり\n　https://www.nic.ad.jp/timeline/"
+      ],
+      "notes": "年表を辿りながら学んでいく\nIPアドレスやコンピュータなど他分野の技術変遷も分かる"
+    },
+    {
+      "title": "ネットワークの基礎知識",
+      "image": "../../assets/slides/13-network-iroha/slide_5.png",
+      "paragraphs": [
+        "ネットワークの基礎知識",
+        "～通信ネットワークエリア～",
+        "LAN（構内通信網）\n→拠点内の通信\n例）家庭内Wi-Fi，会社内ネットワーク",
+        "WAN（広域通信網）\n→拠点間の通信\n例）企業ネットワーク",
+        "https://zenn.dev/mabo23/articles/6bce166695cefd"
+      ],
+      "notes": "・LAN…限られた範囲内の通信\n・WAN…地理的に離れた拠点間の通信\n・企業ネットワーク…本社と支社"
+    },
+    {
+      "title": "ネットワークの基礎知識",
+      "image": "../../assets/slides/13-network-iroha/slide_6.png",
+      "paragraphs": [
+        "ネットワークの基礎知識",
+        "～OSI参照モデル①～",
+        "（1984年策定）",
+        "通信システムを階層的に定義した参照モデル",
+        "サークルではL1～L3を中心に学ぶ",
+        "https://www.infraexpert.com/study/networking3.html",
+        "OSI…Open Systems Interconnection"
+      ],
+      "notes": "OSI…開放型システム間相互接続\nOSI参照モデル…\n　策定される以前のコンピュータネットワークは特定のベンダーのみで構成されており、異なるコンピュータ間通信が困難であった（ネットワーク構成方法が異なるため、通信において互換性がない、またはそれぞれの依存関係が悪影響）"
+    },
+    {
+      "title": "ネットワークの基礎知識",
+      "image": "../../assets/slides/13-network-iroha/slide_7.png",
+      "paragraphs": [
+        "ネットワークの基礎知識",
+        "～OSI参照モデル②～",
+        "https://www.infraexpert.com/study/networking3.html",
+        "～各レイヤの名称～",
+        "アプリケーション層",
+        "プレゼンテーション層",
+        "セッション層",
+        "トランスポート層",
+        "ネットワーク層",
+        "データリンク層",
+        "物理（ブツリ）層",
+        "下",
+        "上"
+      ]
+    },
+    {
+      "title": "ネットワークの基礎知識",
+      "image": "../../assets/slides/13-network-iroha/slide_8.png",
+      "paragraphs": [
+        "ネットワークの基礎知識",
+        "～IPv4アドレス～",
+        "ネットワークにおける通信相手を特定するための識別子",
+        "32ビットで構成され，一般的に10進数で表記される",
+        "文字列はドットによって4ブロック（オクテッド）に区切られる",
+        "https://www.secuavail.com/kb/practical-post/ip-address-subnet-mask/",
+        "IP…Internet Protocol"
+      ]
+    },
+    {
+      "title": "今日のIT小話",
+      "image": "../../assets/slides/13-network-iroha/slide_9.png",
+      "paragraphs": [
+        "今日のIT小話",
+        "インターネット歴史年表\nhttps://www.nic.ad.jp/timeline/"
+      ]
+    },
+    {
+      "title": "参考文献",
+      "image": "../../assets/slides/13-network-iroha/slide_10.png",
+      "paragraphs": [
+        "参考文献",
+        "インターネット歴史年表\nhttps://www.nic.ad.jp/timeline/",
+        "インターネットの誕生\nhttps://www.soumu.go.jp/hakusho-kids/life/what/what_12.html",
+        "OSI参照モデル\nhttps://www.infraexpert.com/study/networking3.html"
+      ]
+    },
+    {
+      "title": "備考",
+      "image": "../../assets/slides/13-network-iroha/slide_11.png",
+      "paragraphs": [
+        "備考",
+        "サークル資料のPDFはGoogleドライブに公開しています\nhttps://drive.google.com/drive/folders/1yhnA8Jg5ulxvuZ55kGLPcHXQPOTzk-Tp"
+      ]
+    }
+  ]
+}

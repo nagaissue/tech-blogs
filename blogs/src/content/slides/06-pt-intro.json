@@ -1,0 +1,269 @@
+{
+  "title": "Cisco Packet Tracerの導入",
+  "description": "～第6回NWサークル～ / Cisco Packet Tracerとは / Ciscoとは",
+  "category": "pt_intro",
+  "session": 6,
+  "slides": [
+    {
+      "title": "Cisco Packet Tracerの導入",
+      "image": "../../assets/slides/06-pt-intro/slide_1.png",
+      "paragraphs": [
+        "Cisco Packet Tracerの導入",
+        "～第6回NWサークル～",
+        "2025/11/17",
+        "作成者：永井秀汰"
+      ]
+    },
+    {
+      "title": "Cisco Packet Tracerとは",
+      "image": "../../assets/slides/06-pt-intro/slide_2.png",
+      "paragraphs": [
+        "Cisco Packet Tracerとは",
+        "Cisco Networking Academyが提供するCisco社公式の\nネットワークシミュレータ",
+        "フリーソフトウェア",
+        "ISOイメージ不要（EXEファイルのみ）",
+        "ハードウェアやIOSイメージ不要",
+        "2025年8月18日バージョン更新\nCisco Packet Tracer 8.2.2→9.0.0"
+      ],
+      "notes": "画像引用：https://www.startertutorials.com/blog/cisco-packet-tracer-overview.html"
+    },
+    {
+      "title": "Ciscoとは",
+      "image": "../../assets/slides/06-pt-intro/slide_3.png",
+      "paragraphs": [
+        "Ciscoとは",
+        "正式名称はシスコシステムズ",
+        "本社はアメリカ合衆国カリフォルニア州サンノゼ",
+        "世界最大のコンピュータネットワーク機器開発会社",
+        "1984年12月10日設立",
+        "https://ja.wikipedia.org/wiki/シスコシステムズ"
+      ]
+    },
+    {
+      "title": "導入手順1",
+      "image": "../../assets/slides/06-pt-intro/slide_4.png",
+      "paragraphs": [
+        "導入手順1",
+        "“Cisco Packet Tracer”または“Cisco Packet Tracer Download”と検索",
+        "以下のサイトにアクセス\nhttps://learningnetwork.cisco.com/s/question/0D53i00000Kt599CAB/download-packet-tracer"
+      ]
+    },
+    {
+      "title": "導入手順2",
+      "image": "../../assets/slides/06-pt-intro/slide_5.png",
+      "paragraphs": [
+        "導入手順2",
+        "以下のURLにアクセス\nhttps://www.netacad.com/about-networking-academy/packet-tracer/"
+      ]
+    },
+    {
+      "title": "導入手順3",
+      "image": "../../assets/slides/06-pt-intro/slide_6.png",
+      "paragraphs": [
+        "導入手順3",
+        "“Google”アイコンをクリック"
+      ],
+      "notes": "既にサインアップ済みのユーザは手順12へ"
+    },
+    {
+      "title": "導入手順4",
+      "image": "../../assets/slides/06-pt-intro/slide_7.png",
+      "paragraphs": [
+        "導入手順4",
+        "任意の氏名を入力",
+        "Googleアカウントと連携しているEメールアドレスを入力",
+        "“Submit”をクリック"
+      ]
+    },
+    {
+      "title": "導入手順5",
+      "image": "../../assets/slides/06-pt-intro/slide_8.png",
+      "paragraphs": [
+        "導入手順5",
+        "“Select Country”は“Japan”を選択",
+        "“Select State”は“Hokkaido”を選択",
+        "“Continue”をクリック"
+      ]
+    },
+    {
+      "title": "導入手順6",
+      "image": "../../assets/slides/06-pt-intro/slide_9.png",
+      "paragraphs": [
+        "導入手順6",
+        "自身の誕生年月を選択",
+        "“Continue”をクリック"
+      ]
+    },
+    {
+      "title": "導入手順7",
+      "image": "../../assets/slides/06-pt-intro/slide_10.png",
+      "paragraphs": [
+        "導入手順7",
+        "入力情報を確認後，“Continue”をクリック"
+      ]
+    },
+    {
+      "title": "導入手順8",
+      "image": "../../assets/slides/06-pt-intro/slide_11.png",
+      "paragraphs": [
+        "導入手順8",
+        "＊が付いたチェック項目をクリック",
+        "（規約は一番下までスクロール）",
+        "“Accept & Continue”をクリック"
+      ]
+    },
+    {
+      "title": "導入手順9",
+      "image": "../../assets/slides/06-pt-intro/slide_12.png",
+      "paragraphs": [
+        "導入手順9",
+        "以下のサイトにアクセス\nhttps://nokonokonetwork.com/certificate/cisco-certifications/how-to-install-and-use-packet-tracer.html",
+        "“Cisco Packet Tracer”リンクにアクセス"
+      ]
+    },
+    {
+      "title": "導入手順10",
+      "image": "../../assets/slides/06-pt-intro/slide_13.png",
+      "paragraphs": [
+        "導入手順10",
+        "サイトをスクロールし，“Take introductory course”をクリック"
+      ]
+    },
+    {
+      "title": "導入手順11",
+      "image": "../../assets/slides/06-pt-intro/slide_14.png",
+      "paragraphs": [
+        "導入手順11",
+        "“Get Started With Self-Paced”をクリック"
+      ]
+    },
+    {
+      "title": "導入手順12",
+      "image": "../../assets/slides/06-pt-intro/slide_15.png",
+      "paragraphs": [
+        "導入手順12",
+        "画面右のページをスクロール",
+        "以下のリンクにアクセス\nhttps://www.netacad.com/resources/lab-downloads"
+      ],
+      "notes": "既にサインアップ済みのユーザは最初からこのサイト飛んでいいかも"
+    },
+    {
+      "title": "導入手順13",
+      "image": "../../assets/slides/06-pt-intro/slide_16.png",
+      "paragraphs": [
+        "導入手順13",
+        "ダウンロードファイルのリンクが3個存在",
+        "“Windows 64bit”をクリックしてダウンロード"
+      ]
+    },
+    {
+      "title": "導入手順14",
+      "image": "../../assets/slides/06-pt-intro/slide_17.png",
+      "paragraphs": [
+        "導入手順14",
+        "ダウンロードが完了後，エクスプローラのダウンロード\nフォルダからexeファイルを起動"
+      ]
+    },
+    {
+      "title": "導入手順15",
+      "image": "../../assets/slides/06-pt-intro/slide_18.png",
+      "paragraphs": [
+        "導入手順15",
+        "セットアップウィザード起動",
+        "“I accept the agreement”を選択",
+        "“Next”をクリック"
+      ]
+    },
+    {
+      "title": "導入手順16",
+      "image": "../../assets/slides/06-pt-intro/slide_19.png",
+      "paragraphs": [
+        "導入手順16",
+        "プログラムファイルのインストールパスを入力\n（基本的には操作不要）",
+        "“Next”をクリック"
+      ]
+    },
+    {
+      "title": "導入手順17",
+      "image": "../../assets/slides/06-pt-intro/slide_20.png",
+      "paragraphs": [
+        "導入手順17",
+        "ソフトのショートカット名を入力\n（バージョンを追記するとわかりやすい）",
+        "“Next”をクリック"
+      ]
+    },
+    {
+      "title": "導入手順18",
+      "image": "../../assets/slides/06-pt-intro/slide_21.png",
+      "paragraphs": [
+        "導入手順18",
+        "デスクトップのショートカットを作成（任意）",
+        "Windowsのスタートメニューを作成（任意）",
+        "“Next”をクリック"
+      ]
+    },
+    {
+      "title": "導入手順19",
+      "image": "../../assets/slides/06-pt-intro/slide_22.png",
+      "paragraphs": [
+        "導入手順19",
+        "入力情報を確認後，“Install”をクリック"
+      ]
+    },
+    {
+      "title": "導入手順20",
+      "image": "../../assets/slides/06-pt-intro/slide_23.png",
+      "paragraphs": [
+        "導入手順20",
+        "“Finish”をクリックしてセットアップの終了",
+        "（“Launch Cisco Packet Tracer”をチェックすると，\nセットアップ終了後にソフトの起動）"
+      ]
+    },
+    {
+      "title": "導入手順21",
+      "image": "../../assets/slides/06-pt-intro/slide_24.png",
+      "paragraphs": [
+        "導入手順21",
+        "ソフト起動時に以下のメッセージが表示された場合\nマルチユーザモードの実行をするか選択できる\n複数ユーザでシミュレーションを共同で行う場合は“Yes”\n基本は“No”を選択"
+      ]
+    },
+    {
+      "title": "導入手順22",
+      "image": "../../assets/slides/06-pt-intro/slide_25.png",
+      "paragraphs": [
+        "導入手順22",
+        "ネット接続時のセキュリティレベルの設定が表示される場合\n（特に操作の必要無し）\n“許可”をクリック"
+      ],
+      "notes": "パブリックネットワーク…デバイスがネットワーク上で検出不可、自宅や公共の場でWi-Fi使用時は推奨とされる\nプライベートネットワーク…デバイスがネットワーク上で検出可"
+    },
+    {
+      "title": "導入手順23",
+      "image": "../../assets/slides/06-pt-intro/slide_26.png",
+      "paragraphs": [
+        "導入手順23",
+        "“LOGIN”をクリック",
+        "ログインサーバは“Worldwide”\n選択項目はWorldwide（全世界）とChina"
+      ]
+    },
+    {
+      "title": "導入手順24",
+      "image": "../../assets/slides/06-pt-intro/slide_27.png",
+      "paragraphs": [
+        "導入手順24",
+        "ログイン後，シミュレーション操作画面が出現",
+        "Webブラウザ側では以下のメッセージが書かれたタブ出現\nタブは閉じて構わない"
+      ]
+    },
+    {
+      "title": "余談",
+      "image": "../../assets/slides/06-pt-intro/slide_28.png",
+      "paragraphs": [
+        "余談",
+        "なぜChinaはWorldwideに統合されていないのか？\n→中国は“グレートファイアウォール”システムを構築しているためではないか",
+        "グレートファイアウォール（GFW）とは…\n（香港とマカオ除く）中国本土のインターネット上に置かれた大規模情報検閲システム",
+        "GFW関連ニュース\nhttps://news.yahoo.co.jp/articles/474b9f36373ff49d36c1a5634973044e6d07788c"
+      ],
+      "notes": "・グレートファイアウォールの由来…“The Great Wall”（万里の長城）と“Fire Wall”（ファイアウォール）から\n・中国でGoogleやSNSなどのグローバルサービスを使用する場合、VPNなどのソフトを使用して障壁を突破する必要あるとか\n・複数文献によると、今年8月20日未明、HTTPS（TCP）の通信全てに対して、偽のTCP RST+ACKパケットが注入され、接続が強制的に切断されたことが原因とのこと\n・GFW公式サイト：https://gfw.report/en/…トップに「知彼知己」、いかにも中国らしい"
+    }
+  ]
+}

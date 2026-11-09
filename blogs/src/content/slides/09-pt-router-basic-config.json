@@ -1,0 +1,85 @@
+{
+  "title": "PTルータの基本設定",
+  "description": "～第9回NWサークル～ / サークル資料に関して / 設定①",
+  "category": "router_config",
+  "session": 9,
+  "slides": [
+    {
+      "title": "PTルータの基本設定",
+      "image": "../../assets/slides/09-pt-router-basic-config/slide_1.png",
+      "paragraphs": [
+        "PTルータの基本設定",
+        "～第9回NWサークル～",
+        "2026/01/19",
+        "作成者：永井秀汰"
+      ]
+    },
+    {
+      "title": "サークル資料に関して",
+      "image": "../../assets/slides/09-pt-router-basic-config/slide_2.png",
+      "paragraphs": [
+        "サークル資料に関して",
+        "Googleドライブの公開URL\nhttps://drive.google.com/drive/folders/1yhnA8Jg5ulxvuZ55kGLPcHXQPOTzk-Tp",
+        "作成した資料やサークル計画などを添付"
+      ],
+      "notes": "PCからアクセスは本資料のPDF版でリンクを踏むと直接アクセスできるはず"
+    },
+    {
+      "title": "設定①",
+      "image": "../../assets/slides/09-pt-router-basic-config/slide_3.png",
+      "paragraphs": [
+        "設定①",
+        "PCとルータを接続"
+      ],
+      "notes": "今後の実機環境での設定を見据えて、コンソール接続も練習"
+    },
+    {
+      "title": "設定②",
+      "image": "../../assets/slides/09-pt-router-basic-config/slide_4.png",
+      "paragraphs": [
+        "設定②",
+        "PCの設定画面を開き、“Desktop”タブへ",
+        "“Terminal”をクリック"
+      ]
+    },
+    {
+      "title": "設定③",
+      "image": "../../assets/slides/09-pt-router-basic-config/slide_5.png",
+      "paragraphs": [
+        "設定③",
+        "画面右下の“OK”をクリック",
+        "CLIの黒い画面が表示される\nENTERキーを押下するとコマンドプロンプトが表示\n（コンソールパスワード設定後はその入力が要求される）"
+      ],
+      "notes": "実機ルータの設定はこのようにリモート接続環境が主流"
+    },
+    {
+      "title": "設定④",
+      "image": "../../assets/slides/09-pt-router-basic-config/slide_6.png",
+      "paragraphs": [
+        "設定④",
+        "プロンプト上で“?”を入力・実行すると、本階層下で使用可能なコマンド一覧が表示される\n（設定中にコマンドを忘れてしまったときなどに便利）"
+      ]
+    },
+    {
+      "title": "設定⑤",
+      "image": "../../assets/slides/09-pt-router-basic-config/slide_7.png",
+      "paragraphs": [
+        "設定⑤",
+        "コマンドプロンプトには階層が存在\n主要な階層とコマンドは以下のようなイメージ\n各階層で設定可能な要素が異なる"
+      ],
+      "code": [
+        "enable\nconfigure terminal\ninterface fastethernet 0/0\nline console 0\nrouter rip"
+      ],
+      "notes": "※EXEC…実行"
+    },
+    {
+      "title": "参考文献",
+      "image": "../../assets/slides/09-pt-router-basic-config/slide_8.png",
+      "paragraphs": [
+        "参考文献",
+        "演習で学ぶネットワーク\nhttps://net-skills.net/",
+        "ネットワークエンジニアとして\nhttps://net-skills.net/"
+      ]
+    }
+  ]
+}

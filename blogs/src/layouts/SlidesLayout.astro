@@ -1,0 +1,56 @@
+---
+// ネットワークサークル資料（/slides 配下）共通レイアウト。
+// ブログ本体の global.css とは独立した、ダーク/ライト切替付きの全画面UI。
+import type { ImageMetadata } from 'astro';
+import '../styles/slides.css';
+
+interface Props {
+	title: string;
+	description: string;
+	image?: ImageMetadata;
+}
+
+const { title, description, image } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="ja" data-theme="dark">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<link rel="canonical" href={canonicalURL} />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={Astro.url} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		{image && <meta property="og:image" content={new URL(image.src, Astro.url)} />}
+		<meta name="twitter:card" content="summary_large_image" />
+		<script is:inline>
+			// 描画前にテーマを適用してちらつきを防ぐ
+			try {
+				const t = localStorage.getItem('network_circle_theme');
+				if (t) document.documentElement.setAttribute('data-theme', t);
+			} catch {}
+		</script>
+	</head>
+	<body>
+		<slot />
+		<script>
+			document.querySelectorAll<HTMLElement>('[data-theme-toggle]').forEach((btn) =>
+				btn.addEventListener('click', () => {
+					const html = document.documentElement;
+					const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+					html.setAttribute('data-theme', next);
+					try {
+						localStorage.setItem('network_circle_theme', next);
+					} catch {}
+				}),
+			);
+		</script>
+	</body>
+</html>

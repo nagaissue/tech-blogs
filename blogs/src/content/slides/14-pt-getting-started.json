@@ -1,0 +1,86 @@
+{
+  "title": "Cisco Packet Tracer入門",
+  "description": "～第14回ネットワークサークル～ / NASアクセス方法 / NASアクセス設定①",
+  "category": "pt_operation",
+  "session": 14,
+  "slides": [
+    {
+      "title": "Cisco Packet Tracer入門",
+      "image": "../../assets/slides/14-pt-getting-started/slide_1.png",
+      "paragraphs": [
+        "Cisco Packet Tracer入門",
+        "～第14回ネットワークサークル～",
+        "2026/04/26",
+        "作成者：永井秀汰"
+      ]
+    },
+    {
+      "title": "目次",
+      "image": "../../assets/slides/14-pt-getting-started/slide_2.png",
+      "paragraphs": [
+        "目次",
+        "NASアクセス方法",
+        "今日のIT豆知識①～③"
+      ]
+    },
+    {
+      "title": "NASアクセス設定①",
+      "image": "../../assets/slides/14-pt-getting-started/slide_3.png",
+      "paragraphs": [
+        "NASアクセス設定①",
+        "Winキー→“cp”でコントロールパネル起動",
+        "「資格情報マネージャー」を選択",
+        "「Windows資格情報」→「Windows資格情報の追加」を選択"
+      ]
+    },
+    {
+      "title": "NASアクセス設定②",
+      "image": "../../assets/slides/14-pt-getting-started/slide_4.png",
+      "paragraphs": [
+        "NASアクセス設定②",
+        "アドレス欄に“10.2.39.2”と\n入力",
+        "ユーザ名、パスワードに“network”と入力",
+        "「OK」で適用"
+      ]
+    },
+    {
+      "title": "NASアクセス設定③",
+      "image": "../../assets/slides/14-pt-getting-started/slide_5.png",
+      "paragraphs": [
+        "NASアクセス設定③",
+        "Winキー＋Eでエクスプローラ起動",
+        "アドレスバーに“\\\\10.2.39.2”と入力",
+        "NASにアクセス\n（アクセス可能フォルダは「network」、「share」）"
+      ]
+    },
+    {
+      "title": "今日のIT豆知識①",
+      "image": "../../assets/slides/14-pt-getting-started/slide_6.png",
+      "paragraphs": [
+        "今日のIT豆知識①",
+        "Win+Vでクリップボード履歴（最大25個）\n操作ガイド↓\nhttps://www.e-tamaya.co.jp/html/tamachan-tsushin/win-v.php"
+      ]
+    },
+    {
+      "title": "今日のIT豆知識②",
+      "image": "../../assets/slides/14-pt-getting-started/slide_7.png",
+      "paragraphs": [
+        "今日のIT豆知識②",
+        "オススメのブラウザ“Brave”\n広告やトラッカーのブロック機能を搭載",
+        "以下URLで検証してみる\nhttps://net-skills.net/intro-menu1/arp/",
+        "オレを頼れ"
+      ],
+      "notes": "画像URL：https://play-lh.googleusercontent.com/UBrZnuXGb-QACU0uUdF5r_n5nx5oBbdfPyEbtsr0xXv00RN7rpaTVu3GjLeE90aHFmNlbaCmm8vNcmY0eE98U9E=w240-h480-rw\n・BraveはDドライブにインストールして実演してみる（）"
+    },
+    {
+      "title": "今日のIT豆知識③",
+      "image": "../../assets/slides/14-pt-getting-started/slide_8.png",
+      "paragraphs": [
+        "今日のIT豆知識③",
+        "ブラウザ上でも使用できる作図ツール“Draw.io”\n本資料のトップにあるトポロジ図はこれで描きました",
+        "ルータやスイッチのアイコンはこちらからダウンロードして使用できる\nhttps://network.yamaha.com/support/download/tool#network_iconset"
+      ],
+      "notes": "画像URL：https://jobtech.jp/wp-content/uploads/draw-io.png"
+    }
+  ]
+}

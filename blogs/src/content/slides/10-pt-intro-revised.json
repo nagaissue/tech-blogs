@@ -1,0 +1,205 @@
+{
+  "title": "Cisco Packet Tracerの導入_修正版",
+  "description": "～第10回NWサークル～ / Cisco Packet Tracerとは / Ciscoとは",
+  "category": "pt_intro",
+  "session": 10,
+  "slides": [
+    {
+      "title": "Cisco Packet Tracerの導入_修正版",
+      "image": "../../assets/slides/10-pt-intro-revised/slide_1.png",
+      "paragraphs": [
+        "Cisco Packet Tracerの導入_修正版",
+        "～第10回NWサークル～",
+        "2026/01/26",
+        "作成者：永井秀汰"
+      ]
+    },
+    {
+      "title": "Cisco Packet Tracerとは",
+      "image": "../../assets/slides/10-pt-intro-revised/slide_2.png",
+      "paragraphs": [
+        "Cisco Packet Tracerとは",
+        "Cisco Networking Academyが提供するCisco社公式の\nネットワークシミュレータ",
+        "フリーソフトウェア",
+        "ハードウェアやIOSイメージ不要",
+        "2025年8月18日バージョン更新\nCisco Packet Tracer 8.2.2→9.0.0",
+        "https://www.startertutorials.com/blog/cisco-packet-tracer-overview.html"
+      ]
+    },
+    {
+      "title": "Ciscoとは",
+      "image": "../../assets/slides/10-pt-intro-revised/slide_3.png",
+      "paragraphs": [
+        "Ciscoとは",
+        "正式名称はシスコシステムズ",
+        "本社はアメリカ合衆国カリフォルニア州サンノゼ",
+        "世界最大のコンピュータネットワーク機器開発会社",
+        "1984年12月10日設立",
+        "https://ja.wikipedia.org/wiki/シスコシステムズ"
+      ]
+    },
+    {
+      "title": "導入手順①",
+      "image": "../../assets/slides/10-pt-intro-revised/slide_4.png",
+      "paragraphs": [
+        "導入手順①",
+        "以下のURLにアクセス\nhttps://www.netacad.com/about-networking-academy/packet-tracer/",
+        "※サインアップ済の方は“導入手順⑧”へスキップ",
+        "PDFから直接アクセス可能"
+      ]
+    },
+    {
+      "title": "導入手順②",
+      "image": "../../assets/slides/10-pt-intro-revised/slide_5.png",
+      "paragraphs": [
+        "導入手順②",
+        "“Google”をクリック"
+      ],
+      "notes": "既にサインアップ済みのユーザは手順12へ"
+    },
+    {
+      "title": "導入手順③",
+      "image": "../../assets/slides/10-pt-intro-revised/slide_6.png",
+      "paragraphs": [
+        "導入手順③",
+        "任意の氏名（名・姓）を入力",
+        "メールアドレスを入力",
+        "“Submit”をクリック"
+      ]
+    },
+    {
+      "title": "導入手順④",
+      "image": "../../assets/slides/10-pt-intro-revised/slide_7.png",
+      "paragraphs": [
+        "導入手順④",
+        "“Select Country”は“Japan”を選択",
+        "“Select State”は“Hokkaido”を選択",
+        "“Continue”をクリック"
+      ]
+    },
+    {
+      "title": "導入手順⑤",
+      "image": "../../assets/slides/10-pt-intro-revised/slide_8.png",
+      "paragraphs": [
+        "導入手順⑤",
+        "自身の誕生年月を選択",
+        "“Continue”をクリック"
+      ]
+    },
+    {
+      "title": "導入手順⑥",
+      "image": "../../assets/slides/10-pt-intro-revised/slide_9.png",
+      "paragraphs": [
+        "導入手順⑥",
+        "入力情報を確認後，“Continue”をクリック"
+      ]
+    },
+    {
+      "title": "導入手順⑦",
+      "image": "../../assets/slides/10-pt-intro-revised/slide_10.png",
+      "paragraphs": [
+        "導入手順⑦",
+        "＊が付いたチェック項目をクリック\n規約は一番下までスクロール",
+        "“Accept & Continue”をクリック（サインアップはここまで）"
+      ]
+    },
+    {
+      "title": "導入手順⑧",
+      "image": "../../assets/slides/10-pt-intro-revised/slide_11.png",
+      "paragraphs": [
+        "導入手順⑧",
+        "インストーラを起動\n（こちらで配布）"
+      ]
+    },
+    {
+      "title": "導入手順⑨",
+      "image": "../../assets/slides/10-pt-intro-revised/slide_12.png",
+      "paragraphs": [
+        "導入手順⑨",
+        "セットアップウィザード起動",
+        "“I accept the agreement”を選択",
+        "“Next”をクリック"
+      ]
+    },
+    {
+      "title": "導入手順⑩",
+      "image": "../../assets/slides/10-pt-intro-revised/slide_13.png",
+      "paragraphs": [
+        "導入手順⑩",
+        "プログラムファイルのインストールパスを入力\n（基本的には操作不要）",
+        "“Next”をクリック"
+      ]
+    },
+    {
+      "title": "導入手順⑪",
+      "image": "../../assets/slides/10-pt-intro-revised/slide_14.png",
+      "paragraphs": [
+        "導入手順⑪",
+        "ソフトのショートカット名を入力\n※“Cisco Packet Tracer 9.0.0”とした方が良い",
+        "“Next”をクリック"
+      ]
+    },
+    {
+      "title": "導入手順⑫",
+      "image": "../../assets/slides/10-pt-intro-revised/slide_15.png",
+      "paragraphs": [
+        "導入手順⑫",
+        "デスクトップのショートカットを作成（推奨）",
+        "Windowsのスタートメニューを作成（任意）",
+        "“Next”をクリック"
+      ]
+    },
+    {
+      "title": "導入手順⑬",
+      "image": "../../assets/slides/10-pt-intro-revised/slide_16.png",
+      "paragraphs": [
+        "導入手順⑬",
+        "入力情報を確認後，“Install”をクリック"
+      ]
+    },
+    {
+      "title": "導入手順⑭",
+      "image": "../../assets/slides/10-pt-intro-revised/slide_17.png",
+      "paragraphs": [
+        "導入手順⑭",
+        "“Finish”をクリックしてセットアップの終了",
+        "（“Launch Cisco Packet Tracer”をチェックすると，\nセットアップ終了後にソフトの起動）"
+      ]
+    },
+    {
+      "title": "導入手順⑮",
+      "image": "../../assets/slides/10-pt-intro-revised/slide_18.png",
+      "paragraphs": [
+        "導入手順⑮",
+        "ソフト起動時に以下のメッセージが表示された場合\nマルチユーザモードの実行をするか選択できる\n複数ユーザでシミュレーションを共同で行う場合は“Yes”\n今回は“No”を選択"
+      ]
+    },
+    {
+      "title": "導入手順⑯",
+      "image": "../../assets/slides/10-pt-intro-revised/slide_19.png",
+      "paragraphs": [
+        "導入手順⑯",
+        "ネット接続時のセキュリティレベルの設定が表示される\nプライベートネットワークのみ有効にする\n“許可”をクリック"
+      ],
+      "notes": "パブリックネットワーク…デバイスがネットワーク上で検出不可、自宅や公共の場でWi-Fi使用時は推奨とされる\nプライベートネットワーク…デバイスがネットワーク上で検出可"
+    },
+    {
+      "title": "導入手順⑰",
+      "image": "../../assets/slides/10-pt-intro-revised/slide_20.png",
+      "paragraphs": [
+        "導入手順⑰",
+        "ログインサーバは“Worldwide”を選択",
+        "“LOGIN”をクリック"
+      ]
+    },
+    {
+      "title": "導入手順⑱",
+      "image": "../../assets/slides/10-pt-intro-revised/slide_21.png",
+      "paragraphs": [
+        "導入手順⑱",
+        "ログイン後，シミュレーション操作画面が出現",
+        "Webブラウザ側では以下のメッセージが書かれたタブ出現\n→閉じて構わない"
+      ]
+    }
+  ]
+}

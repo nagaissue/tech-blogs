@@ -1,0 +1,142 @@
+---
+import SlidesLayout from '../../../layouts/SlidesLayout.astro';
+import { SLIDES_TITLE } from '../../../consts';
+
+// モードごとのコマンド一覧。コマンドを追加するときはここに行を足す。
+const modes = [
+	{
+		prompt: 'Router>',
+		name: 'ユーザEXECモード',
+		commands: [
+			{ cmd: 'enable', desc: '特権EXECモードへ移行', note: 'Router# に変わる' },
+			{ cmd: 'exit', desc: 'ログアウト', note: '-' },
+		],
+	},
+	{
+		prompt: 'Router#',
+		name: '特権EXECモード',
+		commands: [{ cmd: 'configure terminal', desc: 'グローバル設定モードへ移行', note: '(config)# に変わる' }],
+	},
+];
+
+const title = 'Ciscoルータ 基本コマンド一覧';
+---
+
+<SlidesLayout title={`${title} - ${SLIDES_TITLE}`} description="Ciscoルータの主要CLIコマンドをモード別にまとめたリファレンス">
+	<header class="top-header">
+		<a href="/slides/" class="back-link">◀ 一覧へ</a>
+		<button class="icon-btn" data-theme-toggle title="テーマ切替">🌓</button>
+	</header>
+
+	<main>
+		<h1>📖 {title}</h1>
+		{
+			modes.map((m) => (
+				<section class="mode-group">
+					<div class="mode-header">
+						<span class="prompt">{m.prompt}</span>
+						<h2>{m.name}</h2>
+					</div>
+					<div class="table-wrap">
+						<table class="cmd-table">
+							<thead>
+								<tr>
+									<th>コマンド</th>
+									<th>機能</th>
+									<th>備考</th>
+								</tr>
+							</thead>
+							<tbody>
+								{m.commands.map((c) => (
+									<tr>
+										<td>
+											<code>{c.cmd}</code>
+										</td>
+										<td>{c.desc}</td>
+										<td>{c.note}</td>
+									</tr>
+								))}
+							</tbody>
+						</table>
+					</div>
+				</section>
+			))
+		}
+	</main>
+</SlidesLayout>
+
+<style>
+	.top-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 12px 20px;
+		border-bottom: 1px solid var(--border-color);
+		background: var(--header-bg);
+	}
+	main {
+		max-width: 900px;
+		width: 100%;
+		margin: 0 auto;
+		padding: 32px 16px 60px;
+	}
+	h1 {
+		font-size: 1.6rem;
+		margin-bottom: 24px;
+	}
+	.mode-group {
+		border: 1px solid var(--border-color);
+		border-radius: 8px;
+		margin-bottom: 20px;
+		overflow: hidden;
+		background: var(--card-bg);
+	}
+	.mode-header {
+		background: var(--bg-tertiary);
+		padding: 10px 15px;
+		display: flex;
+		align-items: center;
+		gap: 15px;
+	}
+	.mode-header h2 {
+		font-size: 1.05rem;
+	}
+	.prompt {
+		font-family: 'Courier New', monospace;
+		background: #333;
+		color: #00ff00;
+		padding: 2px 8px;
+		border-radius: 4px;
+		font-weight: bold;
+	}
+	.table-wrap {
+		overflow-x: auto;
+	}
+	.cmd-table {
+		width: 100%;
+		border-collapse: collapse;
+	}
+	.cmd-table th,
+	.cmd-table td {
+		padding: 12px;
+		border-bottom: 1px solid var(--border-color);
+		text-align: left;
+		white-space: nowrap;
+	}
+	.cmd-table th {
+		color: var(--accent);
+		font-size: 0.85rem;
+	}
+	.cmd-table tr:last-child td {
+		border-bottom: none;
+	}
+	.cmd-table code {
+		background: rgba(var(--accent-rgb), 0.12);
+		color: #d63384;
+		padding: 2px 5px;
+		border-radius: 3px;
+	}
+	:global([data-theme='dark']) .cmd-table code {
+		color: #f472b6;
+	}
+</style>

@@ -1,0 +1,86 @@
+{
+  "title": "PTルータの基本設定・操作",
+  "description": "～第10回NWサークル～ / 接続設定…p2~ / ワークスペースにルータとPCを配置",
+  "category": "router_config",
+  "session": 10,
+  "slides": [
+    {
+      "title": "PTルータの 基本設定・操作",
+      "image": "../../assets/slides/10-pt-router-config/slide_1.png",
+      "paragraphs": [
+        "PTルータの\n基本設定・操作",
+        "～第10回NWサークル～",
+        "2026/02/02",
+        "作成者：永井秀汰",
+        "“PT”は“Packet Tracer”の略称"
+      ],
+      "notes": "“PT”は“Packet Tracer”の略称"
+    },
+    {
+      "title": "目次",
+      "image": "../../assets/slides/10-pt-router-config/slide_2.png",
+      "paragraphs": [
+        "目次",
+        "接続設定…p2~",
+        "ターミナル操作…p5~"
+      ]
+    },
+    {
+      "title": "ワークスペースにルータとPCを配置",
+      "image": "../../assets/slides/10-pt-router-config/slide_3.png",
+      "paragraphs": [
+        "ワークスペースにルータとPCを配置",
+        "クリック",
+        "クリック",
+        "ワークスペース"
+      ],
+      "notes": "例としてルータ操作"
+    },
+    {
+      "title": "接続設定①",
+      "image": "../../assets/slides/10-pt-router-config/slide_4.png",
+      "paragraphs": [
+        "接続設定①",
+        "PCとルータをLAN接続"
+      ]
+    },
+    {
+      "title": "接続設定②",
+      "image": "../../assets/slides/10-pt-router-config/slide_5.png",
+      "paragraphs": [
+        "接続設定②",
+        "PCとルータをコンソール接続"
+      ],
+      "notes": "今後の実機環境での設定を見据えて、コンソール接続も練習"
+    },
+    {
+      "title": "ターミナル操作①",
+      "image": "../../assets/slides/10-pt-router-config/slide_6.png",
+      "paragraphs": [
+        "ターミナル操作①",
+        "PCの設定画面からターミナル画面へ"
+      ]
+    },
+    {
+      "title": "ターミナル操作②",
+      "image": "../../assets/slides/10-pt-router-config/slide_7.png",
+      "paragraphs": [
+        "ターミナル操作②",
+        "ターミナル画面が表示される",
+        "noと入力",
+        "エンターキーを押下",
+        "プロンプトが出現"
+      ],
+      "notes": "実機ルータの設定はこのようにリモート接続環境が主流"
+    },
+    {
+      "title": "サークル資料に関して",
+      "image": "../../assets/slides/10-pt-router-config/slide_8.png",
+      "paragraphs": [
+        "サークル資料に関して",
+        "サークル資料のPDFはGoogleドライブに公開\nhttps://drive.google.com/drive/folders/1yhnA8Jg5ulxvuZ55kGLPcHXQPOTzk-Tp"
+      ],
+      "notes": "PCからアクセスは本資料のPDF版でリンクを踏むと直接アクセスできるはず"
+    }
+  ]
+}

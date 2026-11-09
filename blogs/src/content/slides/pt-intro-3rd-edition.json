@@ -1,0 +1,194 @@
+{
+  "title": "Cisco Packet Tracerの導入（第3版）",
+  "description": "作成日：2026/05/10 / Cisco Networking Academyアカウント作成 / 手順①",
+  "category": "pt_intro",
+  "date": "2026-05-10",
+  "slides": [
+    {
+      "title": "Cisco Packet Tracerの 導入（第3版）",
+      "image": "../../assets/slides/pt-intro-3rd-edition/slide_1.png",
+      "paragraphs": [
+        "Cisco Packet Tracerの\n導入（第3版）",
+        "作成日：2026/05/10",
+        "作成者：永井秀汰"
+      ]
+    },
+    {
+      "title": "目次",
+      "image": "../../assets/slides/pt-intro-3rd-edition/slide_2.png",
+      "paragraphs": [
+        "目次",
+        "Cisco Networking Academyアカウント作成",
+        "Cisco Packet Tracerのインストール"
+      ]
+    },
+    {
+      "title": "手順①",
+      "image": "../../assets/slides/pt-intro-3rd-edition/slide_3.png",
+      "paragraphs": [
+        "手順①",
+        "以下のURLにアクセス\nhttps://www.netacad.com/about-networking-academy/packet-tracer/",
+        "※サインアップ済の方は“手順⑧”へ",
+        "Ctrlキー＋クリックで\nPDFから直接アクセス可能"
+      ]
+    },
+    {
+      "title": "手順②",
+      "image": "../../assets/slides/pt-intro-3rd-edition/slide_4.png",
+      "paragraphs": [
+        "手順②",
+        "“Sign up”をクリック"
+      ],
+      "notes": "既にサインアップ済みのユーザは手順12へ"
+    },
+    {
+      "title": "手順③",
+      "image": "../../assets/slides/pt-intro-3rd-edition/slide_5.png",
+      "paragraphs": [
+        "手順③",
+        "名を入力",
+        "（半角英字推奨）",
+        "メールアドレスを入力",
+        "“Submit”をクリック",
+        "姓を入力",
+        "（半角英字推奨）"
+      ]
+    },
+    {
+      "title": "手順④",
+      "image": "../../assets/slides/pt-intro-3rd-edition/slide_6.png",
+      "paragraphs": [
+        "手順④",
+        "“Japan”を選択",
+        "“Hokkaido”を選択"
+      ]
+    },
+    {
+      "title": "手順⑤",
+      "image": "../../assets/slides/pt-intro-3rd-edition/slide_7.png",
+      "paragraphs": [
+        "手順⑤",
+        "誕生年を選択",
+        "“Continue”をクリック",
+        "誕生月を選択"
+      ]
+    },
+    {
+      "title": "手順⑥",
+      "image": "../../assets/slides/pt-intro-3rd-edition/slide_8.png",
+      "paragraphs": [
+        "手順⑥",
+        "“Continue”をクリック"
+      ]
+    },
+    {
+      "title": "手順⑦",
+      "image": "../../assets/slides/pt-intro-3rd-edition/slide_9.png",
+      "paragraphs": [
+        "手順⑦",
+        "“Accept & Continue”をクリック",
+        "チェック",
+        "※利用規約は最下までスクロール"
+      ]
+    },
+    {
+      "title": "手順⑧",
+      "image": "../../assets/slides/pt-intro-3rd-edition/slide_10.png",
+      "paragraphs": [
+        "手順⑧",
+        "配布したインストーラ（exeファイル）を実行"
+      ]
+    },
+    {
+      "title": "手順⑨",
+      "image": "../../assets/slides/pt-intro-3rd-edition/slide_11.png",
+      "paragraphs": [
+        "手順⑨",
+        "“Next”をクリック"
+      ]
+    },
+    {
+      "title": "手順⑩",
+      "image": "../../assets/slides/pt-intro-3rd-edition/slide_12.png",
+      "paragraphs": [
+        "手順⑩",
+        "“Next”をクリック",
+        "“C:\\Program Files\\Cisco Packet Tracer 9.0.0”と入力\n（面倒であればスキップ）"
+      ]
+    },
+    {
+      "title": "手順⑪",
+      "image": "../../assets/slides/pt-intro-3rd-edition/slide_13.png",
+      "paragraphs": [
+        "手順⑪",
+        "“Next”をクリック",
+        "“Cisco Packet Tracer 9.0.0”と入力"
+      ]
+    },
+    {
+      "title": "手順⑫",
+      "image": "../../assets/slides/pt-intro-3rd-edition/slide_14.png",
+      "paragraphs": [
+        "手順⑫",
+        "“Next”をクリック",
+        "チェック（推奨）"
+      ]
+    },
+    {
+      "title": "手順⑬",
+      "image": "../../assets/slides/pt-intro-3rd-edition/slide_15.png",
+      "paragraphs": [
+        "手順⑬",
+        "“Install”をクリック"
+      ]
+    },
+    {
+      "title": "手順⑭",
+      "image": "../../assets/slides/pt-intro-3rd-edition/slide_16.png",
+      "paragraphs": [
+        "手順⑭",
+        "“Finish”をクリック",
+        "チェック"
+      ]
+    },
+    {
+      "title": "（手順⑮）",
+      "image": "../../assets/slides/pt-intro-3rd-edition/slide_17.png",
+      "paragraphs": [
+        "（手順⑮）",
+        "ソフト起動時に以下のメッセージが表示された場合\nマルチユーザモードの実行をするか選択できる\n複数ユーザでシミュレーションを共同で行う場合は“Yes”\n今回は“No”を選択"
+      ]
+    },
+    {
+      "title": "（手順⑯）",
+      "image": "../../assets/slides/pt-intro-3rd-edition/slide_18.png",
+      "paragraphs": [
+        "（手順⑯）",
+        "ネット接続時のセキュリティレベルの設定が表示される\nプライベートネットワークのみ有効にする",
+        "チェック",
+        "“許可”をクリック"
+      ],
+      "notes": "パブリックネットワーク…デバイスがネットワーク上で検出不可、自宅や公共の場でWi-Fi使用時は推奨とされる\nプライベートネットワーク…デバイスがネットワーク上で検出可"
+    },
+    {
+      "title": "（手順⑰）",
+      "image": "../../assets/slides/pt-intro-3rd-edition/slide_19.png",
+      "paragraphs": [
+        "（手順⑰）",
+        "“Worldwide”を選択",
+        "“LOGIN”をクリック"
+      ]
+    },
+    {
+      "title": "（手順⑱）",
+      "image": "../../assets/slides/pt-intro-3rd-edition/slide_20.png",
+      "paragraphs": [
+        "（手順⑱）",
+        "ログイン後，シミュレーション操作画面が出現",
+        "ブラウザでは以下のメッセージが書かれたタブ出現",
+        "↓",
+        "閉じて構わない"
+      ]
+    }
+  ]
+}

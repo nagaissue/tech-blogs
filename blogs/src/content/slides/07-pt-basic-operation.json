@@ -1,0 +1,209 @@
+{
+  "title": "Cisco Packet Tracerの基本操作",
+  "description": "～第7回NWサークル～ / 基本操作手順 / 基本操作手順①",
+  "category": "pt_operation",
+  "session": 7,
+  "slides": [
+    {
+      "title": "Cisco Packet Tracerの 基本操作",
+      "image": "../../assets/slides/07-pt-basic-operation/slide_1.png",
+      "paragraphs": [
+        "Cisco Packet Tracerの\n基本操作",
+        "～第7回NWサークル～",
+        "2025/12/08",
+        "作成者：永井秀汰"
+      ]
+    },
+    {
+      "title": "基本操作手順",
+      "image": "../../assets/slides/07-pt-basic-operation/slide_2.png",
+      "paragraphs": [
+        "基本操作手順",
+        "参考サイト\nhttps://www.infraexpert.com/info/packettracer04.html\n「cisco packet tracerの使い方」で検索"
+      ],
+      "notes": "例としてルータ操作"
+    },
+    {
+      "title": "基本操作手順①",
+      "image": "../../assets/slides/07-pt-basic-operation/slide_3.png",
+      "paragraphs": [
+        "基本操作手順①",
+        "画面下の “Network Devices”から “Routers”をクリック",
+        "配置したいルータをクリック",
+        "ワークスペースの適当な場所でクリックして配置"
+      ],
+      "notes": "例としてルータ操作"
+    },
+    {
+      "title": "基本操作手順②",
+      "image": "../../assets/slides/07-pt-basic-operation/slide_4.png",
+      "paragraphs": [
+        "基本操作手順②",
+        "ワークスペースの適当な場所でクリックして配置\n（ドラッグ＆ドロップでも配置可能）",
+        "ワークスペース"
+      ]
+    },
+    {
+      "title": "基本操作手順③",
+      "image": "../../assets/slides/07-pt-basic-operation/slide_5.png",
+      "paragraphs": [
+        "基本操作手順③",
+        "同様にしてPCを配置\n（PCは“Network Devices”の“End Devices”にある）"
+      ]
+    },
+    {
+      "title": "基本操作手順④",
+      "image": "../../assets/slides/07-pt-basic-operation/slide_6.png",
+      "paragraphs": [
+        "基本操作手順④",
+        "ルータとPCを配線\n“Connections”の“Connections”から“Copper Straight-Through”をクリック"
+      ]
+    },
+    {
+      "title": "基本操作手順⑤",
+      "image": "../../assets/slides/07-pt-basic-operation/slide_7.png",
+      "paragraphs": [
+        "基本操作手順⑤",
+        "PCをクリック",
+        "ポート一覧から“FastEthernet0”をクリック",
+        "ルータをクリック",
+        "ポート一覧から“GigabitEthernet0/0/0”をクリック"
+      ]
+    },
+    {
+      "title": "基本操作手順⑥",
+      "image": "../../assets/slides/07-pt-basic-operation/slide_8.png",
+      "paragraphs": [
+        "基本操作手順⑥",
+        "配線完了",
+        "このままではPCとルータのどちらもインターフェスが\nダウンしている状態"
+      ]
+    },
+    {
+      "title": "アップデートによる変更箇所",
+      "image": "../../assets/slides/07-pt-basic-operation/slide_9.png",
+      "paragraphs": [
+        "アップデートによる変更箇所",
+        "（個人的に気づいた点は以下）",
+        "ルータノードには新モデル“PT8200”が追加",
+        "PCの初期搭載モジュールがイーサネットからワイヤレスへ",
+        "CLI設定画面の軽微なデザイン変更",
+        "ファイバーケーブルがシングル／マルチモードの2種類展開"
+      ]
+    },
+    {
+      "title": "PT8200の操作①",
+      "image": "../../assets/slides/07-pt-basic-operation/slide_10.png",
+      "paragraphs": [
+        "PT8200の操作①",
+        "PT8200をワークスペースに配置",
+        "ノード設定ウィンドウのCLIタブをクリック",
+        "以下のような画面が表示される"
+      ]
+    },
+    {
+      "title": "PT8200の操作②",
+      "image": "../../assets/slides/07-pt-basic-operation/slide_11.png",
+      "paragraphs": [
+        "PT8200の操作②",
+        "本ルータは手動でIOSイメージを手動インストールする",
+        "プロンプトから“？”で本階層での使用コマンド一覧を表示",
+        "“boot”でIOSイメージのインストール実行"
+      ],
+      "notes": "プロンプト…コマンド入力を促す文字列や記号"
+    },
+    {
+      "title": "PT8200の操作③",
+      "image": "../../assets/slides/07-pt-basic-operation/slide_12.png",
+      "paragraphs": [
+        "PT8200の操作③",
+        "インストールが完了すると、“Press RETURN to get started!”\nと表示される",
+        "エンターキーでプロンプト表示\n→この先はルータの設定操作が可能"
+      ]
+    },
+    {
+      "title": "オリジナルルータの作成①",
+      "image": "../../assets/slides/07-pt-basic-operation/slide_13.png",
+      "paragraphs": [
+        "オリジナルルータの作成①",
+        "“Network Devices”の“Routers”から“PT-Empty”をクリック\nしてワークスペースに配置"
+      ]
+    },
+    {
+      "title": "オリジナルルータの作成②",
+      "image": "../../assets/slides/07-pt-basic-operation/slide_14.png",
+      "paragraphs": [
+        "オリジナルルータの作成②",
+        "ルータをクリックして設定画面を表示",
+        "“Physical”タブをクリック",
+        "“Physical Devices View”から、ルータ右上の電源スイッチを\nOFFに（緑ランプが消灯する）"
+      ]
+    },
+    {
+      "title": "オリジナルルータの作成③",
+      "image": "../../assets/slides/07-pt-basic-operation/slide_15.png",
+      "paragraphs": [
+        "オリジナルルータの作成③",
+        "“MODULES”から“PT-ROUTER-NM-1CGE”をクリック\n（これ以外のモジュールでも構わない）",
+        "画面下のモジュールアイコンを拡張スロットにドラッグ＆\nドロップ",
+        "スロットの数だけ搭載してみる"
+      ]
+    },
+    {
+      "title": "オリジナルルータの作成③",
+      "image": "../../assets/slides/07-pt-basic-operation/slide_16.png",
+      "paragraphs": [
+        "オリジナルルータの作成③",
+        "全て搭載後、ルータの電源をON（緑ランプが点灯）",
+        "CLIタブを開くと再起動していることが分かる",
+        "再起動が完了するとプロンプトが出現"
+      ]
+    },
+    {
+      "title": "オリジナルルータの作成④",
+      "image": "../../assets/slides/07-pt-basic-operation/slide_17.png",
+      "paragraphs": [
+        "オリジナルルータの作成④",
+        "ワークスペース上部のタブから以下のアイコンをクリック"
+      ]
+    },
+    {
+      "title": "オリジナルルータの作成⑤",
+      "image": "../../assets/slides/07-pt-basic-operation/slide_18.png",
+      "paragraphs": [
+        "オリジナルルータの作成⑤",
+        "管理画面が出現、“Select”をクリック",
+        "ワークスペースから追加したいルータをクリック"
+      ]
+    },
+    {
+      "title": "オリジナルルータの作成⑥",
+      "image": "../../assets/slides/07-pt-basic-operation/slide_19.png",
+      "paragraphs": [
+        "オリジナルルータの作成⑥",
+        "“Template”に選択したルータ名が入力される",
+        "ノードカテゴリは“Miscellaneous”を選択",
+        "“Add”をクリック"
+      ]
+    },
+    {
+      "title": "オリジナルルータの作成⑦",
+      "image": "../../assets/slides/07-pt-basic-operation/slide_20.png",
+      "paragraphs": [
+        "オリジナルルータの作成⑦",
+        "テンプレートファイルの保存操作へ",
+        "CまたはDドライブにあるCisco Packet Tracerの\nTemplateフォルダ直下に任意のファイル名で保存",
+        "例）C:\\Users\\r9one\\Cisco Packet Tracer 9.0.0\\templates"
+      ]
+    },
+    {
+      "title": "～余談～G206のNASについて",
+      "image": "../../assets/slides/07-pt-basic-operation/slide_21.png",
+      "paragraphs": [
+        "～余談～G206のNASについて",
+        "NAS設定の調査をした結果、設定アプリのインストールに成功",
+        "ストレージは約190GBであった"
+      ]
+    }
+  ]
+}

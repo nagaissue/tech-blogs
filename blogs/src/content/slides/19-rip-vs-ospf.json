@@ -1,0 +1,32 @@
+{
+  "title": "RIPとOSPF",
+  "description": "～第19回ネットワークサークル～ / 目的",
+  "category": "router_config",
+  "session": 19,
+  "date": "2026-06-29",
+  "slides": [
+    {
+      "title": "RIPとOSPF",
+      "image": "../../assets/slides/19-rip-vs-ospf/slide_1.png",
+      "paragraphs": [
+        "RIPとOSPF",
+        "～第19回ネットワークサークル～",
+        "作成者：永井秀汰"
+      ]
+    },
+    {
+      "title": "目的",
+      "image": "../../assets/slides/19-rip-vs-ospf/slide_2.png",
+      "paragraphs": [
+        "目的",
+        "OSPFを知る",
+        "RIPとOSPFの違いを理解する",
+        "OSPFを用いたネットワークを構築する"
+      ]
+    },
+    {
+      "title": "3",
+      "image": "../../assets/slides/19-rip-vs-ospf/slide_3.png"
+    }
+  ]
+}

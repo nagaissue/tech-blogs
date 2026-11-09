@@ -1,0 +1,222 @@
+{
+  "title": "ネットワークのいろは・改",
+  "description": "バージョン：1.0 / コンピュータネットワーク / ホストコンピュータの登場",
+  "category": "network_basics",
+  "session": 20,
+  "slides": [
+    {
+      "title": "ネットワークのいろは・改",
+      "image": "../../assets/slides/20-network-iroha-kai/slide_1.png",
+      "paragraphs": [
+        "ネットワークのいろは・改",
+        "バージョン：1.0",
+        "作成日　　：2026/07/13",
+        "作成者　　：永井秀汰",
+        "～第20回ネットワークサークル～"
+      ]
+    },
+    {
+      "title": "目次",
+      "image": "../../assets/slides/20-network-iroha-kai/slide_2.png",
+      "paragraphs": [
+        "目次",
+        "コンピュータネットワーク",
+        "TCP/IPとインターネット",
+        "ネットワークプロトコル"
+      ]
+    },
+    {
+      "title": "ホストコンピュータの登場",
+      "image": "../../assets/slides/20-network-iroha-kai/slide_3.png",
+      "paragraphs": [
+        "ホストコンピュータの登場",
+        "ホストコンピュータ",
+        "スタンドアロン型",
+        "計算処理",
+        "情報処理",
+        "～当時～",
+        "▲コンピュータは大型",
+        "▲コンピュータ同士の接続不可"
+      ]
+    },
+    {
+      "title": "”汎用機”，”メインフレーム”とも称される",
+      "image": "../../assets/slides/20-network-iroha-kai/slide_4.png",
+      "paragraphs": [
+        "”汎用機”，”メインフレーム”とも称される",
+        "総務省｜令和元年版 情報通信白書｜情報システムの進化",
+        "https://www.soumu.go.jp/johotsusintokei/whitepaper/ja/r01/html/nd111140.html",
+        "IBM Zメインフレームのサーバーとソフトウェア",
+        "https://www.ibm.com/jp-ja/products/z",
+        "IBM社の最新ホストコンピュータ",
+        "（組込みAI搭載）",
+        "ホストコンピュータ",
+        "富士通 FACOM230-50（1966年）"
+      ],
+      "notes": "総務省｜令和元年版 情報通信白書｜情報システムの進化\nhttps://www.soumu.go.jp/johotsusintokei/whitepaper/ja/r01/html/nd111140.html\nIBM Zメインフレームのサーバーとソフトウェア\nhttps://www.ibm.com/jp-ja/products/z"
+    },
+    {
+      "title": "パーソナルコンピュータ（PC）の登場",
+      "image": "../../assets/slides/20-network-iroha-kai/slide_5.png",
+      "paragraphs": [
+        "パーソナルコンピュータ（PC）の登場",
+        "ホストコンピュータから小型化，情報処理が容易になった",
+        "Apple Ⅱ",
+        "2013_6-19_lecture_note.pdf",
+        "https://www.bk.tsukuba.ac.jp/~mrlab/note/2013年度/2013_6-19_lecture_note.pdf",
+        "PCの始祖と称される“Apple Ⅱ”（1977年）"
+      ],
+      "notes": "2013_6-19_lecture_note.pdf\nhttps://www.bk.tsukuba.ac.jp/~mrlab/note/2013年度/2013_6-19_lecture_note.pdf"
+    },
+    {
+      "title": "ARPANET（アーパネット） 1969年…米国内の4つの大学・研究機関を接続する形で運用が開始",
+      "image": "../../assets/slides/20-network-iroha-kai/slide_6.png",
+      "paragraphs": [
+        "ARPANET（アーパネット）\n1969年…米国内の4つの大学・研究機関を接続する形で運用が開始",
+        "←左図のアイコン箇所",
+        "①カリフォルニア大学ロサンゼルス校(UCLA)",
+        "②カリフォルニア大学サンタバーバラ校(UCSB)",
+        "③ユタ大学",
+        "④スタンフォード研究所(SRI)",
+        "米国防総省の資金提供により，1967年に研究を開始したパケット通信型ネットワーク"
+      ],
+      "notes": "ARPANET…Advanced Research Projects Agency NETworkの略称\nマップURL：https://www.google.com/maps/@38.0309303,-116.6369397,5.88z\n?authuser=0&entry=ttu&g_ep=EgoyMDI2MDQxNS4wIKXMDSoASAFQAw%3D%3D"
+    },
+    {
+      "title": "ネットワークプロトコルとは？",
+      "image": "../../assets/slides/20-network-iroha-kai/slide_7.png",
+      "paragraphs": [
+        "ネットワークプロトコルとは？",
+        "①“Hello, How are you?”",
+        "②“I’m fine. And you?”",
+        "③“Could you help me?”",
+        "④“Oh, What?”",
+        "人間の会話"
+      ]
+    },
+    {
+      "title": "ネットワークプロトコルとは？",
+      "image": "../../assets/slides/20-network-iroha-kai/slide_8.png",
+      "paragraphs": [
+        "ネットワークプロトコルとは？",
+        "①“コンピュータBは君かい？”",
+        "②“ちゃうよ”",
+        "コンピュータの会話",
+        "コンピュータA",
+        "コンピュータB"
+      ],
+      "notes": "年表を辿りながら学んでいく\nIPアドレスやコンピュータなど他分野の技術変遷も分かる"
+    },
+    {
+      "title": "ネットワークプロトコルの種類",
+      "image": "../../assets/slides/20-network-iroha-kai/slide_9.png",
+      "paragraphs": [
+        "ネットワークプロトコルの種類",
+        "1980年代のネットワークプロトコルたち",
+        "優勝"
+      ],
+      "notes": "IBM - Wikipedia\nhttps://ja.wikipedia.org/wiki/IBM\n日立製作所 – Wikipedia\nhttps://ja.wikipedia.org/wiki/日立製作所\n富士通 – Wikipedia\nhttps://ja.wikipedia.org/wiki/富士通\n日本電気 – Wikipedia\nhttps://ja.wikipedia.org/wiki/日本電気\nThe Untold Story of the Internet How a 1969 Military Project Became the Backbone of the Cloud | by Enfiq | Medium\nhttps://enfiq.medium.com/the-untold-story-of-the-internet-how-a-1969-military-project-became-the-backbone-of-the-cloud-53245540d125"
+    },
+    {
+      "title": "9",
+      "image": "../../assets/slides/20-network-iroha-kai/slide_10.png",
+      "paragraphs": [
+        "SNA",
+        "プロトコル",
+        "FNA",
+        "プロトコル",
+        "HNA",
+        "プロトコル",
+        "DINA",
+        "プロトコル",
+        "かみ合わない",
+        "＝コンピュータ同士で会話できない",
+        "会話したい＝",
+        "標準化したい"
+      ]
+    },
+    {
+      "title": "1977年にISOが提案",
+      "image": "../../assets/slides/20-network-iroha-kai/slide_11.png",
+      "paragraphs": [
+        "1977年にISOが提案",
+        "通信システムを階層的に定義した参照モデル",
+        "コンピュータ同士が会話するための役割が定義されている",
+        "https://www.infraexpert.com/study/networking3.html",
+        "OSI=",
+        "“Open System Interconnection”",
+        "ISO=",
+        "“International Organizaion for Standardization”",
+        "1~7層まである"
+      ],
+      "notes": "OSI…開放型システム間相互接続\nOSI参照モデル…\n　策定される以前のコンピュータネットワークは特定のベンダーのみで構成されており、異なるコンピュータ間通信が困難であった（ネットワーク構成方法が異なるため、通信において互換性がない、またはそれぞれの依存関係が悪影響）"
+    },
+    {
+      "title": "11",
+      "image": "../../assets/slides/20-network-iroha-kai/slide_12.png",
+      "paragraphs": [
+        "https://www.infraexpert.com/study/networking3.html",
+        "～各レイヤの名称～",
+        "アプリケーション層",
+        "プレゼンテーション層",
+        "セッション層",
+        "トランスポート層",
+        "ネットワーク層",
+        "データリンク層",
+        "物理（ブツリ）層",
+        "下",
+        "上"
+      ]
+    },
+    {
+      "title": "12",
+      "image": "../../assets/slides/20-network-iroha-kai/slide_13.png",
+      "paragraphs": [
+        "OSI",
+        "プロトコル",
+        "かみ合う",
+        "＝コンピュータ同士で会話できる！",
+        "OSI",
+        "プロトコル",
+        "OSI",
+        "プロトコル",
+        "OSI",
+        "プロトコル",
+        "標準化",
+        "マルチ",
+        "ベンダー化"
+      ]
+    },
+    {
+      "title": "ベンダーとは？",
+      "image": "../../assets/slides/20-network-iroha-kai/slide_14.png",
+      "paragraphs": [
+        "ベンダーとは？",
+        "”ベンダー”の例…自動販売機“Vending Machine”",
+        "自販機は飲み物等を“販売する”＝“Vend”",
+        "ベンダー“Vender”＝販売者（メーカ）"
+      ],
+      "notes": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhNsSdULp9eUkYVsrcPGxEVJefcX9Xxf3pGgyJSW7f-t7_tckOs4gYY5DL-rT3v4NhKVidSDyk2ojczBg18z4Tycs37OCIxMW6dXbxHNhtCQDbkpY7mZRJk_tBD4mEzd0TV8rmvHo6rr3JM/s800/machine_jidouhanbaiki.png"
+    },
+    {
+      "title": "今日のIT豆知識",
+      "image": "../../assets/slides/20-network-iroha-kai/slide_15.png",
+      "paragraphs": [
+        "Googleカレンダー",
+        "Zenn",
+        "今日のIT豆知識"
+      ]
+    },
+    {
+      "title": "参考文献",
+      "image": "../../assets/slides/20-network-iroha-kai/slide_16.png",
+      "paragraphs": [
+        "参考文献",
+        "図解標準 最新TCP/IPハンドブック",
+        "総務省｜令和元年版 情報通信白書｜情報システムの進化\nhttps://www.soumu.go.jp/johotsusintokei/whitepaper/ja/r01/html/nd111140.html",
+        "2回目:パーソナルコンピュータの歴史と現状\nhttps://www.bk.tsukuba.ac.jp/~mrlab/note/2013%E5%B9%B4%E5%BA%A6/2013_6-19_lecture_note.pdf",
+        "TCP/IP普及以前、すべては1万分の1だった!? － ＠IT\nhttps://atmarkit.itmedia.co.jp/fnetwork/tanpatsu/24tcpip/01.html"
+      ]
+    }
+  ]
+}
